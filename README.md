@@ -34,8 +34,8 @@ fn main() {
     match can_fail() {
         Ok(_) => (),
         Err(a) => {
-            print(a.description().as_ptr());
-            print(a.source().as_ptr());
+            print(a.cstr_description());
+            print(a.cstr_source();
             if let Some(c) = a.code() {
                 if c == FAIL {
                     print("secret of life".as_ptr());
