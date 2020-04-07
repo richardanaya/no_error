@@ -13,7 +13,8 @@ An error library for `no_std` + `no_alloc` Rust
 use no_error::*;
 
 extern "C" {
-    fn print(x: const *u8);
+    fn print(x: const *u8); // takes in a c-string
+    fn print_with_len(x: const *u8, len usize); // takes in text and length
 }
 
 const FAIL:ErrorCode = 42;
@@ -36,7 +37,7 @@ fn main() {
         Ok(_) => (),
         Err(a) => {
             print(a.cstr_description());
-            print(a.cstr_source();
+            print_with_len(a.source().as_ptr(), a.source().len());
             if let Some(c) = a.code() {
                 if c == FAIL {
                     print("secret of life".as_ptr());
