@@ -33,7 +33,7 @@ fn can_fail(i:i32) -> Result<()> {
 }
 
 fn main() {
-    match can_fail() {
+    match can_fail(42) {
         Ok(_) => (),
         Err(a) => {
             print(a.cstr_description());
