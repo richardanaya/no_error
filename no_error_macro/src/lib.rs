@@ -5,12 +5,12 @@ use proc_macro_hack::proc_macro_hack;
 use std::str::FromStr;
 
 #[proc_macro_hack]
-pub fn error(input: TokenStream) -> TokenStream {
+pub fn error_message(input: TokenStream) -> TokenStream {
     let mut tokens = input.into_iter().peekable();
     let mut description;
     let mut source;
     if let Some(TokenTree::Literal(t)) = tokens.next() {
-        description = format!("{}",t);
+        description = format!("{}", t);
     } else {
         panic!("first param of error! should be a string")
     }
@@ -19,9 +19,13 @@ pub fn error(input: TokenStream) -> TokenStream {
         panic!("first param of error! should be a string")
     }
     description.pop();
-    println!("{}",file!());
+    println!("{}", file!());
     if let None = tokens.peek() {
-        return TokenStream::from_str(&format!("Err(({}\\0\",\"\\0\"))", description)).unwrap();
+        return TokenStream::from_str(&format!(
+            "Err(no_error::NoError::Message(({}\\0\",\"\\0\")))",
+            description
+        ))
+        .unwrap();
     }
 
     if let Some(TokenTree::Punct(p)) = tokens.next() {
@@ -31,16 +35,19 @@ pub fn error(input: TokenStream) -> TokenStream {
     }
 
     if let Some(TokenTree::Literal(t)) = tokens.next() {
-        source = format!("{}",t);
+        source = format!("{}", t);
     } else {
         panic!("second param of error! should be a string")
     }
-
 
     if source.chars().last().unwrap() != '"' {
         panic!("second param of error! should be a string")
     }
     source.pop();
 
-    return TokenStream::from_str(&format!("Err(({}\\0\",{}\\0\"))", description, source)).unwrap();
+    return TokenStream::from_str(&format!(
+        "Err(no_error::NoError::Message(({}\\0\",{}\\0\")))",
+        description, source
+    ))
+    .unwrap();
 }
