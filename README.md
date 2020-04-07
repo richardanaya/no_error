@@ -18,7 +18,7 @@ extern "C" {
 const FAIL:ErrorCode = 42;
 
 fn can_fail(i:i32) -> Result<()> {
-    if i < 3 { 
+    if i < 0 { 
         // programmatically appends a "/0" to end of static string
         error_message!("a failure happened","it happened in can_fail()")
     } else if i == 0 {
