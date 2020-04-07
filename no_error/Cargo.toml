@@ -6,6 +6,7 @@ edition = "2018"
 license = "MIT OR Apache-2.0"
 description = "an error library for no_std"
 repository = "https://github.com/richardanaya/no_error/"
+readme = "../README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
