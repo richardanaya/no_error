@@ -1,7 +1,8 @@
 # no_error
 
-A library for no_std developers for errors
+An error library for no_std Rust
 
+* no allocator required
 * macro transforms strings into C-strings
 * no allocation required, static strings only
 * specifying source is optional
