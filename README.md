@@ -13,6 +13,8 @@ extern "C" {
     fn print(x: const *u8);
 }
 
+const FAIL:ErrorCode = 42;
+
 fn can_fail(i:i32) -> Result<()> {
     if i < 3 { 
         // programmatically appends a "/0" to end of static string
