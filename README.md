@@ -37,7 +37,8 @@ fn main() {
         Ok(_) => (),
         Err(a) => {
             print(a.cstr_description());
-            print_with_len(a.source().as_ptr(), a.source().len());
+            let source = a.source();
+            print_with_len(source.as_ptr(),source.len());
             if let Some(c) = a.code() {
                 if c == FAIL {
                     print("secret of life".as_ptr());
