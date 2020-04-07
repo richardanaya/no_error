@@ -4,6 +4,7 @@ An error library for no_std Rust
 
 * macro transforms string literals into C style character array
 * no allocator required
+* support for error codes if C strings aren't an option
 
 ```rust
 use no_error::*;
