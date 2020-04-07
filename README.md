@@ -2,7 +2,7 @@
 
 An error library for no_std Rust
 
-* macro transforms strings into C-strings
+* macro transforms string literals into C style character array
 * no allocation required, static strings only
 
 ```rust
