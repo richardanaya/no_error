@@ -1,6 +1,8 @@
 # no_error
 
-An error library for no_std + no_alloc Rust
+<a href="https://docs.rs/no_error"><img src="https://img.shields.io/badge/docs-latest-blue.svg?style=flat-square" alt="docs.rs docs" /></a>
+
+An error library for `no_std` + `no_alloc` Rust
 
 * macro transforms string literals into C style character array
 * no allocator required
@@ -16,18 +18,16 @@ extern "C" {
 const FAIL:ErrorCode = 42;
 
 fn can_fail(i:i32) -> Result<()> {
-    if i < 3 { 
+    if i < 0 { 
         // programmatically appends a "/0" to end of static string
-        error_message!("auto fail","failed in can_fail()")
-    } else {
+        error_message!("a failure happened","it happened in can_fail()")
+    } else if i == 0 {
         // don't like c strings? supports failure codes too
         error_code!(FAIL)
+    } else {
+        // you don't have to specify the source if you don't want
+        error_message!("a failure happened")
     }
-}
-
-fn can_fail_2() -> Result<()> {
-    // no need to specify source if you don't want
-    error_message!("auto fail")
 }
 
 fn main() {
