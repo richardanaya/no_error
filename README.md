@@ -2,10 +2,8 @@
 
 An error library for no_std Rust
 
+* macro transforms string literals into C style character array
 * no allocator required
-* macro transforms strings into C-strings
-* no allocation required, static strings only
-* specifying source is optional
 
 ```rust
 use no_error::*;
