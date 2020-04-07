@@ -20,16 +20,14 @@ const FAIL:ErrorCode = 42;
 fn can_fail(i:i32) -> Result<()> {
     if i < 3 { 
         // programmatically appends a "/0" to end of static string
-        error_message!("auto fail","failed in can_fail()")
-    } else {
+        error_message!("a failure happened","it happened in can_fail()")
+    } else if i == 0 {
         // don't like c strings? supports failure codes too
         error_code!(FAIL)
+    } else {
+        // you don't have to specify the source if you don't want
+        error_message!("a failure happened")
     }
-}
-
-fn can_fail_2() -> Result<()> {
-    // no need to specify source if you don't want
-    error_message!("auto fail")
 }
 
 fn main() {
