@@ -32,8 +32,8 @@ fn main() {
     match can_fail() {
         Ok(_) => (),
         Err(a) => {
-            print(a.description().as_ptr())
-            print(a.source().as_ptr())
+            print(a.description().as_ptr());
+            print(a.source().as_ptr());
             if let Some(c) = a.code() {
                 if c == 42 {
                     print("secret to life".as_ptr());
