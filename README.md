@@ -1,6 +1,6 @@
 # no_error
 
-An error library for no_std Rust
+An error library for no_std + no_alloc Rust
 
 * macro transforms string literals into C style character array
 * no allocator required
