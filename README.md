@@ -1,5 +1,7 @@
 # no_error
 
+<a href="https://docs.rs/no_error"><img src="https://img.shields.io/badge/docs-latest-blue.svg?style=flat-square" alt="docs.rs docs" /></a>
+
 An error library for no_std + no_alloc Rust
 
 * macro transforms string literals into C style character array
