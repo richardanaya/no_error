@@ -7,6 +7,6 @@ fn can_fail() -> Result<(), impl Error> {
 fn main() {
     match can_fail() {
         Ok(_) => println!("ok"),
-        Err(a) => println!("{}", a.description()),
+        Err(a) => println!("{} {}", a.description(),a.source()),
     };
 }

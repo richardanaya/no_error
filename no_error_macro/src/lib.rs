@@ -19,9 +19,10 @@ pub fn error(input: TokenStream) -> TokenStream {
         panic!("first param of error! should be a string")
     }
     description.pop();
-
+    println!("{}",file!());
     if let None = tokens.peek() {
-        return TokenStream::from_str(&format!("Err(({}\0\",\"\"))", description)).unwrap();
+        #[cfg(build = "release")]
+        return TokenStream::from_str(&format!("Err(({}\\0\",\"\"))", description)).unwrap();
     }
 
     if let Some(TokenTree::Punct(p)) = tokens.next() {
@@ -42,5 +43,5 @@ pub fn error(input: TokenStream) -> TokenStream {
     }
     source.pop();
 
-    return TokenStream::from_str(&format!("Err(({}\0\",{}\0\"))", description, source)).unwrap();
+    return TokenStream::from_str(&format!("Err(({}\\0\",{}\\0\"))", description, source)).unwrap();
 }
