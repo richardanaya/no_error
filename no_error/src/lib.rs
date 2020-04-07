@@ -4,6 +4,8 @@ use proc_macro_hack::proc_macro_hack;
 #[proc_macro_hack(fake_call_site)]
 pub use no_error_macro::error;
 
+pub type Result<T> = core::result::Result<T, (&'static str,&'static str)>;
+
 pub trait Error {
     fn description(&self) -> &'static str;
     fn source(&self) -> &'static str;

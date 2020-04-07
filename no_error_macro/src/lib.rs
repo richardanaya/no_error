@@ -21,8 +21,7 @@ pub fn error(input: TokenStream) -> TokenStream {
     description.pop();
     println!("{}",file!());
     if let None = tokens.peek() {
-        #[cfg(build = "release")]
-        return TokenStream::from_str(&format!("Err(({}\\0\",\"\"))", description)).unwrap();
+        return TokenStream::from_str(&format!("Err(({}\\0\",\"\\0\"))", description)).unwrap();
     }
 
     if let Some(TokenTree::Punct(p)) = tokens.next() {

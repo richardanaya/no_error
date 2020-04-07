@@ -1,6 +1,6 @@
 use no_error::*;
 
-fn can_fail() -> Result<(), impl Error> {
+fn can_fail() -> Result<()> {
     error!("foo")
 }
 
