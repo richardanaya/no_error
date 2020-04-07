@@ -1,0 +1,14 @@
+[package]
+name = "no_error_macro"
+version = "0.0.0"
+authors = ["Richard Anaya"]
+edition = "2018"
+license = "MIT OR Apache-2.0"
+description = "a macro returning errors for no_std"
+repository = "https://github.com/richardanaya/no_error/"
+
+[dependencies]
+proc-macro-hack = "0.5"
+
+[lib]
+proc-macro = true

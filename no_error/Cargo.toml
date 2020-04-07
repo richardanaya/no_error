@@ -7,3 +7,5 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+no_error_macro = {path="../no_error_macro", version="0.0"}
+proc-macro-hack = "0.5"
