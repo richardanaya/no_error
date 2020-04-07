@@ -38,7 +38,7 @@ fn main() {
             print(a.source().as_ptr());
             if let Some(c) = a.code() {
                 if c == FAIL {
-                    print("secret to life".as_ptr());
+                    print("secret of life".as_ptr());
                 }
             }
         },
